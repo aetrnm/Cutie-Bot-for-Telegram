@@ -6,3 +6,6 @@
 
 #js files
 *.js
+
+#fake db
+database.json
