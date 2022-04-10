@@ -23,7 +23,8 @@ export async function setupBotCommandsDescription(bot: Bot): Promise<void> {
     ]);
 }
 
-function registerGroup(groupID: number) {
+function registerGroup(ctx) {
+    const groupID = ctx.chat.id;
     const rawdata = fs.readFileSync(
         new URL("./database.json", import.meta.url),
         "utf8"
@@ -91,7 +92,7 @@ export function setupBotCommands(bot: Bot) {
             (group) => group.id === groupID
         );
         if (groupIndexInDB === -1) {
-            registerGroup(groupID);
+            registerGroup(ctx);
             addUserToGroup(groupID, userID);
             return;
         }
