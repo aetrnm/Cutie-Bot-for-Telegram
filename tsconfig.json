@@ -1,10 +1,11 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
+        "target": "ESNext",
+        "module": "ESNext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "outDir": "build",
-        "rootDir": "src"
+        "allowSyntheticDefaultImports": true,
+        "outDir": "build/",
+        "rootDir": "src/"
     }
 }
