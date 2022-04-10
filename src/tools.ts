@@ -75,8 +75,37 @@ export function setupBotCommands(bot: Bot) {
     bot.command("help", (ctx) => {
         ctx.reply("*Help* \n_List of commands_:", { parse_mode: "MarkdownV2" });
     });
+
     bot.command("cutie", (ctx) => {
-        ctx.reply("Today the cutie is @Conterry");
+        const groupID = ctx.chat.id;
+        const rawdata = fs.readFileSync(
+            new URL("./database.json", import.meta.url),
+            "utf8"
+        );
+        const groups: Array<ICuteGroup> = JSON.parse(rawdata.toString());
+
+        const groupIndexInDB: number = groups.findIndex(
+            (group) => group.id === groupID
+        );
+        if (groupIndexInDB === -1) {
+            ctx.reply(
+                "You should register in the game first!\nUse /register command."
+            );
+            return;
+        }
+        function getRandomInt(max: number) {
+            return Math.floor(Math.random() * max);
+        }
+
+        const numberOfMembers = groups[groupIndexInDB].groupMembers.length;
+        const cutieIndex = getRandomInt(numberOfMembers);
+        const cutieID = groups[groupIndexInDB].groupMembers[cutieIndex].id;
+        groups[groupIndexInDB].groupMembers[cutieID].cuteCounter += 1;
+        ctx.getChatMember(cutieID).then((member) =>
+            ctx.reply(`@${member.user.username} is a cutie`, {
+                parse_mode: "MarkdownV2",
+            })
+        );
     });
 
     bot.command("register", (ctx) => {
