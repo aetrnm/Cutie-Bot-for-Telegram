@@ -4,8 +4,8 @@
 # env
 .env
 
-#js files
-*.js
+#build files
+/build
 
 #fake db
 database.json
