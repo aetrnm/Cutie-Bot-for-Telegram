@@ -1,5 +1,5 @@
 import { Bot } from "grammy";
-import { setupBotCommandsDescription, setupBotCommands } from "./tools";
+import { setupBotCommands, setupBotCommandsDescription } from "./tools";
 import * as dotenv from "dotenv";
 const env = dotenv?.config()?.parsed || { BOT_TOKEN: "" };
 const BOT_TOKEN = env.BOT_TOKEN;
