@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "tsc bot.ts && node bot.js"
+        "build": "tsc --resolveJsonModule"
     },
     "dependencies": {
         "@types/node-fetch": "^2.6.1",
