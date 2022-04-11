@@ -6,6 +6,7 @@
         "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true,
         "outDir": "build/",
-        "rootDir": "src/"
+        "rootDir": "src/",
+        "baseUrl": "."
     }
 }
