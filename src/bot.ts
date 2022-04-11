@@ -9,6 +9,4 @@ const bot: Bot = new Bot(BOT_TOKEN);
 setupBotCommands(bot);
 setupBotCommandsDescription(bot);
 
-bot.on("message", (ctx) => ctx.reply("Got another message!"));
-
 bot.start();
