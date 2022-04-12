@@ -2,7 +2,7 @@ import { Bot } from "grammy";
 import * as fs from "fs";
 import { ICuteGroup } from "./ICuteGroup";
 import chalk from "chalk";
-import { DBFILENAME, registerGroup, addUserToGroup } from "./tools";
+import { DBFILENAME, registerGroup, addUserToGroup } from "./tools.js";
 
 export function setupBotCommands(bot: Bot) {
     bot.command("help", (ctx) => {
@@ -26,14 +26,20 @@ export function setupBotCommands(bot: Bot) {
             );
             return;
         }
+
         function getRandomInt(max: number) {
             return Math.floor(Math.random() * max);
         }
 
-        const numberOfMembers = groups[groupIndexInDB].groupMembers.length;
-        const cutieIndex = getRandomInt(numberOfMembers);
+        if (groups[groupIndexInDB].lastCutieGameDate - Date.now() < 86400) {
+            return;
+        }
+
+        const numberOfPlayers = groups[groupIndexInDB].groupMembers.length;
+        const cutieIndex = getRandomInt(numberOfPlayers);
         const cutieID = groups[groupIndexInDB].groupMembers[cutieIndex].id;
         groups[groupIndexInDB].groupMembers[cutieIndex].cuteCounter++;
+        groups[groupIndexInDB].lastCutieGameDate = Date.now();
         ctx.getChatMember(cutieID).then((member) =>
             ctx.reply(`@${member.user.username} is a cutie`)
         );
@@ -43,8 +49,6 @@ export function setupBotCommands(bot: Bot) {
                 chalk.green("Cutie registered. Data written successfully.")
             )
         );
-
-        console.log(json);
     });
 
     bot.command("register", (ctx) => {
