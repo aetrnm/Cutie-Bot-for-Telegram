@@ -10,13 +10,13 @@ export async function setupBotCommandsDescription(bot: Bot): Promise<void> {
     await bot.api.setMyCommands([
         { command: "help", description: "Show all avialable commands" },
         {
-            command: "cutie",
-            description: "Finds the cutest person of the day",
-        },
-        {
             command: "register",
             description:
                 "Register in the game for the cutiest person of the day",
+        },
+        {
+            command: "cutie",
+            description: "Finds the cutest person of the day",
         },
         {
             command: "info",
@@ -68,7 +68,10 @@ function addUserToGroup(groupID: number, userID: number) {
 
 export function setupBotCommands(bot: Bot) {
     bot.command("help", (ctx) => {
-        ctx.reply("*Help* \n_List of commands_:", { parse_mode: "MarkdownV2" });
+        ctx.reply(
+            "*Help* \n_List of commands_:\n/help \\- show all avialable commands\n/register \\- register in a cutie of the day game\n/cutie \\- find the cutie of the day\n/info \\- about the bot",
+            { parse_mode: "MarkdownV2" }
+        );
     });
 
     bot.command("cutie", (ctx) => {
