@@ -12,6 +12,7 @@ export function registerGroup(ctx) {
     const newGroup: ICuteGroup = {
         id: groupID,
         groupMembers: [],
+        lastCutieGameDate: Date.now(),
     };
 
     const groupIndexInDB: number = groups.findIndex(
