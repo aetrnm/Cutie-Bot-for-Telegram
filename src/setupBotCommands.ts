@@ -31,7 +31,12 @@ export function setupBotCommands(bot: Bot) {
             return Math.floor(Math.random() * max);
         }
 
-        if (groups[groupIndexInDB].lastCutieGameDate - Date.now() < 86400) {
+        const cutiePeriod = 43200000;
+        if (
+            Date.now() - groups[groupIndexInDB].lastCutieGameDate <
+            cutiePeriod
+        ) {
+            console.log(Date.now() - groups[groupIndexInDB].lastCutieGameDate);
             return;
         }
 
