@@ -31,7 +31,7 @@ export function setupBotCommands(bot: Bot) {
             return Math.floor(Math.random() * max);
         }
 
-        const cutiePeriod = 43200000;
+        const cutiePeriod = 43200000; //this time is specified in ms, currently it is half of a day
         if (
             Date.now() - groups[groupIndexInDB].lastCutieGameDate <
             cutiePeriod
