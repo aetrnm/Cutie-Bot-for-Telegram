@@ -28,7 +28,6 @@ export function registerGroup(ctx) {
                 chalk.green("New group added. Data written successfully. RGF")
             )
         );
-        console.log(json);
     }
 }
 
