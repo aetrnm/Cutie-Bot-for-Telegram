@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "build": "tsc --resolveJsonModule"
+        "build": "tsc",
+        "start": "node .\\build\\bot.js"
     },
     "type": "module",
     "dependencies": {
