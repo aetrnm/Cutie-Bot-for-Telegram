@@ -1,7 +1,8 @@
 import * as fs from "fs";
+import chalk from "chalk";
+
 import { ICuteGroup } from "./ICuteGroup";
 import { ICuteUser } from "./ICuteUser";
-import chalk from "chalk";
 
 export const DBFILENAME = "database.json";
 
