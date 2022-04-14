@@ -33,7 +33,7 @@ commands.command("cutie", (ctx) => {
         return Math.floor(Math.random() * max);
     }
 
-    const cutiePeriod = 60000; //this time is specified in ms, currently it is half of a day
+    const cutiePeriod = 60000; //this time is specified in ms, currently it is one minute
     if (Date.now() - groups[groupIndexInDB].lastCutieGameDate < cutiePeriod) {
         return;
     }
