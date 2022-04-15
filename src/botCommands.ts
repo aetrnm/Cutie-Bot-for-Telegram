@@ -84,7 +84,7 @@ commands.command("register", (ctx) => {
 
 commands.command("info", (ctx) => {
     ctx.reply(
-        "Bot created by @aetrnm \nGithub repository: https://github.com/aetrnm/TGbot/tree/master",
+        "Bot created by @aetrnm \nGithub repository: https://github.com/aetrnm/Cutie-Bot-for-Telegram",
         { disable_web_page_preview: true }
     );
 });
