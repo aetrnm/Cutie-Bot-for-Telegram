@@ -1,4 +1,7 @@
 {
+    "name": "cutie-bot",
+    "version": "1.0.0",
+    "description": "Bot for Telegram which lets you choose the cutie of the day",
     "scripts": {
         "build": "tsc",
         "start": "node .\\build\\bot.js"
@@ -13,5 +16,7 @@
         "chalk": "^5.0.1",
         "dotenv": "^16.0.0",
         "prettier": "^2.6.2"
-    }
+    },
+    "author": "Hnatkovskyi Oleh",
+    "license": "ISC"
 }
